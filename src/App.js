@@ -31,21 +31,8 @@ function App() {
   const loading_songs = useSelector(
     ({ songs_reducer: { loading_songs } }) => loading_songs
   );
-  // const fetchDataError = useSelector(
-  //   ({ songs_reducer: { fetchDataError } }) => fetchDataError
-  // );
-  // if (fetchDataError) {
-  //   return alert(`Ошибка загрузки! ${fetchDataError.message}`) 
-    
-  // }
-  if(loading_songs) return null
-  
-  // console.log("data", data )
-  // const handler = 
  
-  // dispatch(songs_are_loaded(data));
-  // dispatch(fetchDataError(error))
-  // dispatch(fetchDataSuccess(loading))
+  if(loading_songs) return null
   const navigatorState = store.getState()
   console.log("store", navigatorState);
   return (

@@ -7,16 +7,18 @@ const CaverContent = () => {
     const all_songs = useSelector(
         ({ songs_reducer: { all_songs } }) => all_songs
     );
+    
     return all_songs.map((song) => {
+        const {photo, name, id} = song
         return (
-            <Link key={song.id} to={`/cavers/${song.id}`}>
+            <Link key={id} to={`/cavers/${id}`}>
                 <div className={classes.media}>
                     <div className={classes.mediaImage}>
                         {/* <img src={song.photo} width={100} alt={song.name} /> */}
-                        <Img imgUrl={song.photo} imgAlt={song.name} />
+                        <Img imgUrl={photo} imgAlt={name} />
                     </div>
                     <div>
-                        <p> {song.name} </p>
+                        <p> {name} </p>
                     </div>
                 </div>
             </Link>
