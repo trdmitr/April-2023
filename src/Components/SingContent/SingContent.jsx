@@ -1,44 +1,23 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment } from 'react'
 import { useParams } from "react-router";
 import classes from "../components.module.css"
-import { Link, useNavigate } from 'react-router-dom'
-// import { Context } from '../context'
+import { useNavigate } from 'react-router-dom'
 import { audioSource, tzitata, videoSource } from '../Hooks/utils';
 // import Loader from '../Loader/Loader';
-import RoundLoader from '../Loader/RoundLoader';
+// import RoundLoader from '../Loader/RoundLoader';
 import { useSelector } from 'react-redux';
-// import {add_to_cart, different_product_are_loaded, products_are_loaded } from "Redux\Action_creators.js";
 const SingContent = () => {
     const navigate = useNavigate();
     const params = useParams();
-    // const id = useParams();
-    // const { data } = useContext(Context);
       const currSings = useSelector(
         ({ songs_reducer: { all_songs } }) => all_songs.filter(results => results.id === params.id)
       );
-      console.log("ALL_PROD", currSings)
-    // const currSings = useMemo(() => {
-    //     if (all_songs.length === 0) {
-    //         return <Loader />
-    //     }
-    //     else {
-    //         return Array.from(all_songs).filter(all_songs => all_songs.id === params.id);
-    //     }
-    // }, [all_songs])
+    //   console.log("ALL_PROD", currSings)
+
     return (
-        useMemo(() => {
-            if (!currSings.length) {
-                return (
-                    <div className='loadBlock'>
-                        <RoundLoader />
-                        <Link to="/"><button className={classes.btnError}>На главную</button></Link>
-                    </div>
-                )
-            }
-            // const tzitata1 = useSingContent(tzitata1(currSing.picture))
-            return currSings.map((currSing) =>
-                <Fragment>
-                    <div className={classes.mediaSong} key={currSing.id}>
+             currSings.map((currSing) =>
+                <Fragment key={currSing.id}>
+                    <div className={classes.mediaSong}>
                         <img className={classes.mediaImage_modal} src={currSing.photo} width={80} alt={currSing.name} />
                         <div className={classes.headerSong}>
                             <p>{currSing.name}</p></div>
@@ -66,9 +45,10 @@ const SingContent = () => {
                     </div>
 
                 </Fragment>
-            );
-        }, [currSings])
+            
+            )
+        // }, [currSings])
     )
 }
 
-export default SingContent
+export default React.memo(SingContent) 
