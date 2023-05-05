@@ -133,8 +133,8 @@ align-items: center;
   font-size: 1.5rem;
   
   padding: 0.2rem 1.3rem;
-  color: var(--colorText);
-  background-color: #0f1ccc;
+  color: whitesmoke;
+  /* background-color: #0f1ccc; */
   border-radius: 0.5rem;
   /* border: 2px solid var(--titleSongColor); */
   /* border-bottom: 4px solid #b2b1b1; */
