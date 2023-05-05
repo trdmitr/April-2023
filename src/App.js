@@ -5,12 +5,9 @@ import { HashRouter as Router, Routes, Route, useLocation, Link } from "react-ro
 import { HomePage } from './Components/HomePage/HomePage';
 import { CaverPage } from './Components/CaverPage/CaverPage';
 import SinglPage from './Components/SingContent/SinglPage';
-// import { Context } from './Components/context'
 import useFetch from './Components/API/useFetch';
 import { useSelector } from 'react-redux';
-// import { fetchDataSuccess, fetchDataError, songs_are_loaded} from "./Redux/Action_creators";
 import {store} from "./Redux/store"
-// import { fetchSongs } from "./Redux/fetchData";
 function NotFound() {
   let location = useLocation();
   return (
@@ -41,7 +38,7 @@ function App() {
   //   return alert(`Ошибка загрузки! ${fetchDataError.message}`) 
     
   // }
-  // if(loading_songs) return null
+  if(loading_songs) return null
   
   // console.log("data", data )
   // const handler = 
@@ -49,12 +46,11 @@ function App() {
   // dispatch(songs_are_loaded(data));
   // dispatch(fetchDataError(error))
   // dispatch(fetchDataSuccess(loading))
-  // const navigatorState = store.getState()
-  // console.log("store", navigatorState);
+  const navigatorState = store.getState()
+  console.log("store", navigatorState);
   return (
     <div className="App">
       <Fragment>
-      {/* <Context.Provider value={{ data, loading, error}}> */}
        <Router>
           <Routes>
          <Route exact path="/" element={<HomePage/>} />
@@ -63,7 +59,6 @@ function App() {
          <Route path="*" element={<NotFound />} />
        </Routes>
        </Router>
-       {/* </Context.Provider>    */}
    </Fragment>
     </div>
   );

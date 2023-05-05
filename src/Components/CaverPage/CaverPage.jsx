@@ -1,29 +1,36 @@
-import React, { useContext, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link} from 'react-router-dom';
 import classes from "./CaverPage.module.css"
-import { Context } from '../context'
+// import { Context } from '../context'
 import Player from '../Player/Player';
 import RoundLoader from '../Loader/RoundLoader';
 import Img from '../UI/Img';
 import Modal from '../UI/Modal/Modal';
 import About from '../UI/About';
 import PlayButton from '../UI/Modal/PlayButton';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 
 export const CaverPage = () => {
   const [modal, setModal] = useState(false);
-  const { data: songs, loading, error } = useContext(Context);
+  // const { data: songs, loading, error } = useContext(Context);
   const all_songs = useSelector(
     ({ songs_reducer: { all_songs } }) => all_songs
   );
-  console.log("all_songs", all_songs)
+  const loading_songs = useSelector(
+    ({ songs_reducer: { loading_songs } }) => loading_songs
+  );
+  if(loading_songs) return  <div className='loadBlock'><RoundLoader /></div>
+   const fetchDataError = useSelector(
+    ({ songs_reducer: { fetchDataError } }) => fetchDataError
+  );
+
   const singContent = useMemo(() => {
-    // if (loading) {
-    //   return <div className='loadBlock'><RoundLoader /></div>
-    // }
-    // if (error) {
-    //   return <div className='loadBlock'>Ошибка загрузки!</div>
-    // }
+    if (loading_songs) {
+      return <div className='loadBlock'><RoundLoader /></div>
+    }
+    if (!fetchDataError) {
+      return <div className='loadBlock'>Ошибка загрузки!</div>
+    }
     return all_songs.map((song, i) => {
       return (
       
@@ -41,7 +48,6 @@ export const CaverPage = () => {
       )
 
     })
-
   }, [all_songs])
   return (
     <div className="device device-iphone-x">
@@ -57,10 +63,10 @@ export const CaverPage = () => {
             </PlayButton>
             <div className={classes.column50}>
             {/*  */}
-              {error ? <h2>Ошибка загрузки!</h2> : ""}
+              {!fetchDataError? <h2>Ошибка загрузки!</h2> : ""}
               {singContent}
             </div>
-            <Player all_songs = {all_songs} />
+            <Player/>
           </div>
           <Link to="/"><button className={classes.btnHome}>Главная</button></Link>
         </div>

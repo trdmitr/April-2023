@@ -15,7 +15,7 @@ const Player = () => {
   // const rez = listNow(songs)
   
   if (!audioList) {
-    return <div className='loadBlock'><Loader /></div>
+    return <div className='loadBlock'><Loader /> Ошибка загрузки!</div>
   }
   // if (error) {
   //   return <h1 className='loadBlock' >Ошибка загрузки!</h1>

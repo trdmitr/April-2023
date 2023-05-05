@@ -7,7 +7,7 @@ const useFetch = (url, options) => {
   const [status, setStatus] = useState({
     loading: false,
     data: [],
-    error: null
+    error: ""
   });
 
   function fetchNow(url, options) {
