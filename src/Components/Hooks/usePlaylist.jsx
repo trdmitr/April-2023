@@ -1,9 +1,7 @@
 import React, {useEffect } from 'react'
 import { useState } from "react";
-// import { Context } from '../context'
 import { useSelector } from 'react-redux';
 const usePlaylist = () => {
-    // const { data: songs1, error } = useContext(Context);
     const [audioList, setStatus] = useState();
     const songs = useSelector(
         ({ songs_reducer: { all_songs } }) => all_songs
@@ -67,19 +65,13 @@ const usePlaylist = () => {
         const audioList = [...audiosongs1, ...audiosongs2, ...audiosongs3, ...audiosongs4, ...audiosongs5, ...audiosongs6]
             .filter(e => e.src !== '')
 
-        // console.log(audioList)
         return setStatus(audioList)
     }
-
-    //  useMemo(() => { 
         useEffect(() => {
-        //     useCallback(() => {
             if (songs) {
           listNow();
             }
         }, [songs]);
     return { audioList};
 }
-
-
 export default  usePlaylist
