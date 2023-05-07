@@ -1,13 +1,13 @@
 {
-  "name": "march-2023",
-  "homepage": "https://trdmitr.github.io/March-2023/",
+  "name": "april-2023",
+  "homepage": "https://trdmitr.github.io/April-2023/",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "papaparse": "^5.4.0",
+    "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-h5-audio-player": "^3.8.6",

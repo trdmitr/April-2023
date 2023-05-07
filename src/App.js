@@ -7,7 +7,7 @@ import { CaverPage } from './Components/CaverPage/CaverPage';
 import SinglPage from './Components/SingContent/SinglPage';
 import useFetch from './Components/API/useFetch';
 import { useSelector } from 'react-redux';
-import {store} from "./Redux/store"
+// import {store} from "./Redux/store"
 function NotFound() {
   let location = useLocation();
   return (
@@ -25,7 +25,7 @@ function App() {
   //   dispatch(fetchSongs());
     
   // }, []);
-  const urlParse = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTr20C0VPXynKYsXxAjVWKdFX1icr_6NO-9sd9UmAbrtnYYNtD23fMB83dviQwF6F8-z4M225GEBaCX/pub?output=csv";
+  const urlParse = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTyhVKUWoUKLuI26hf5kZcEXRwjdGqscy0GDiNGCbHfzWiW7QQ_m2lrhyiQUKzZ7_9vLBgIPE7WMwXM/pub?output=csv";
   // const { data, loading, error } = 
   useFetch(urlParse)
   const loading_songs = useSelector(
@@ -33,8 +33,8 @@ function App() {
   );
  
   if(loading_songs) return null
-  const navigatorState = store.getState()
-  console.log("store", navigatorState);
+  // const navigatorState = store.getState()
+  // console.log("store", navigatorState);
   return (
     <div className="App">
       <Fragment>
