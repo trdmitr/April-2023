@@ -20,7 +20,8 @@ const SingContent = () => {
                return (
                <Fragment key={id}>
                     <div className={classes.mediaSong} >
-                        <img className={classes.mediaImage_modal} src={photo} width={80} alt={name} />
+                        <img className={classes.mediaImage_modal} src={photo}  alt={name} />
+                        
                         <div className={classes.headerSong}>
                             <p>{name}</p></div>
                         <a className={[classes.linkTo, linkTo ? '' : classes.mediaHidden].join(' ')} href={linkTo}

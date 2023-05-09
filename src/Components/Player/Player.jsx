@@ -11,7 +11,7 @@ const Player = () => {
   const { audioList} = usePlaylist()
 
   if (!audioList) {
-    return <div className='loadBlock'><Loader /> Ошибка загрузки!</div>
+    return <div className='loadBlock'><Loader /></div>
   }
   const handleClickPrevious = () => {
     setTrackIndex((currentTrack) =>

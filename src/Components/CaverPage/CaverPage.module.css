@@ -4,6 +4,7 @@
     max-height: 40rem;
     overflow-y: scroll;
     border-radius: 2em;
+    scrollbar-width: none;
 }
 
 .row::-webkit-scrollbar {
