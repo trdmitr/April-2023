@@ -21,7 +21,7 @@ const CaverContent = () => {
                 <div className={classes.media}>
                     <div className={classes.mediaImage}>
                     {loading_songs
- ? <RoundLoader/> : <img src={photo} width={100} alt={name} />}	
+ ? <RoundLoader/> : <img loading="lazy" src={photo} width={100} alt={name} />}	
                         {/* <Img imgUrl={photo} imgAlt={name} /> */}
                     </div>
                     <div>

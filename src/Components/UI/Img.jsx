@@ -18,6 +18,6 @@ const Img = ({imgUrl, imgAlt}) => {
     return <RoundLoader/>;
   }
       
-  return <img src = {url} alt={imgAlt}/>;
+  return <img loading="lazy" src = {url} alt={imgAlt}/>;
 }
 export default Img

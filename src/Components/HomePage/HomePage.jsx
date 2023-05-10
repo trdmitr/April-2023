@@ -21,8 +21,8 @@ export const HomePage = () => {
                       <div className={classes.main}>
                       
                           {/* <div className={classes.article}><p >Вот и всё что было...</p></div> */}
-                          <div className={classes.article}><img src={imgUrl} width={100} alt={imgAlt} /></div>
-                          <div className={classes.article}><img src={imgUrl2} width={100} alt={imgAlt} /></div>
+                          <div className={classes.article}><img fetchpriority="high" role="presentation"  src={imgUrl} width={100} alt={imgAlt} /></div>
+                          <div className={classes.article}><img fetchpriority="high" role="presentation"  src={imgUrl2} width={100} alt={imgAlt} /></div>
                       </div>
                   </div>
               </div>
