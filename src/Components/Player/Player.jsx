@@ -6,9 +6,9 @@ import "react-h5-audio-player/lib/styles.css";
 import Loader from '../Loader/Loader';
 import usePlaylist from '../Hooks/usePlaylist';
 
-const Player = () => {
+const Player = ({songs}) => {
   const [trackIndex, setTrackIndex] = useState(0)
-  const { audioList} = usePlaylist()
+  const { audioList} = usePlaylist(songs)
 
   if (!audioList) {
     return <div className='loadBlock'><Loader /></div>
@@ -51,4 +51,4 @@ const Player = () => {
   )
 }
 
-export default Player
+export default React.memo(Player) 

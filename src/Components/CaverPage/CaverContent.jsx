@@ -2,18 +2,18 @@ import React from 'react'
 // import Img from '../UI/Img';
 import { Link } from 'react-router-dom';
 import classes from "./CaverPage.module.css"
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import RoundLoader from '../Loader/RoundLoader';
-const CaverContent = () => {
-    const all_songs = useSelector(
-        ({ songs_reducer: { all_songs } }) => all_songs
-    );
-    const loading_songs
-    = useSelector(
-        ({ songs_reducer: { loading_songs
-        } }) => loading_songs
+const CaverContent = ({all_songs, loading_songs}) => {
+    // const all_songs = useSelector(
+    //     ({ songs_reducer: { all_songs } }) => all_songs
+    // );
+    // const loading_songs
+    // = useSelector(
+    //     ({ songs_reducer: { loading_songs
+    //     } }) => loading_songs
 
-    );
+    // );
     return all_songs.map((song) => {
         const {photo, name, id} = song
         return (

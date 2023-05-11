@@ -1,15 +1,23 @@
-import React, {useEffect } from 'react'
-import { useState } from "react";
-import { useSelector } from 'react-redux';
-const usePlaylist = () => {
+import React, {useEffect, useState } from 'react'
+// import { useSelector } from 'react-redux';
+const usePlaylist = (songs) => {
     const [audioList, setStatus] = useState();
-    const songs = useSelector(
-        ({ songs_reducer: { all_songs } }) => all_songs
-      );
-      
+    // const songs = useSelector(
+    //     ({ songs_reducer: { all_songs } }) => all_songs
+    //   );
+    
+    //  function loggerMy (foo) {
+    //     console.log(foo)
+    //  }
+    //  const loMy = loggerMy
+     
     if (songs.length === 0) {
         return <div>....</div>
     }
+    // loMy(songs)
+    // if (songs.length === 0) {
+    //     return <div>....</div>
+    // }
     // console.log(songs)
     const listNow = () => {
         const audiosongs1 = songs.map((song) => {
@@ -69,9 +77,9 @@ const usePlaylist = () => {
     }
         useEffect(() => {
             if (songs) {
-          listNow();
+          listNow(songs);
             }
-        }, [songs]);
-    return { audioList};
+        }, []);
+    return {audioList, listNow};
 }
 export default  usePlaylist

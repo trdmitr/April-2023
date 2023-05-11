@@ -7,8 +7,18 @@ import Modal from '../UI/Modal/Modal';
 import About from '../UI/About';
 import PlayButton from '../UI/Modal/PlayButton';
 import CaverContent from './CaverContent';
+import { useSelector } from 'react-redux';
 export const CaverPage = () => {
   const [modal, setModal] = useState(false);
+  const all_songs = useSelector(
+    ({ songs_reducer: { all_songs } }) => all_songs
+);
+const loading_songs
+    = useSelector(
+        ({ songs_reducer: { loading_songs
+        } }) => loading_songs
+
+    );
   return (
     <div className="device device-iphone-x">
       <div className="device-frame">
@@ -21,9 +31,9 @@ export const CaverPage = () => {
               <span role="img" aria-label="emoji name"> 📌 </span>
             </PlayButton>
             <div className={classes.column50}>
-              <CaverContent />
+              <CaverContent loading_songs = {loading_songs} all_songs = {all_songs} />
             </div>
-            <Player />
+            <Player songs = {all_songs} />
           </div>
           <Link to="/"><button className={classes.btnHome}>Главная</button></Link>
         </div>
